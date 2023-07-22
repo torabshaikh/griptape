@@ -8,6 +8,7 @@ from griptape.mixins import ExponentialBackoffMixin
 from griptape.tokenizers import BaseTokenizer
 
 if TYPE_CHECKING:
+    from griptape.tokenizers import BaseTokenizer
     from griptape.artifacts import TextArtifact
     from griptape.structures import Structure
 
