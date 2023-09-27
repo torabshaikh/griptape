@@ -68,7 +68,7 @@ class ToolkitTask(PromptTask, ActionSubtaskOriginMixin):
         if not self.output:
             for s in self.subtasks:
                 stack.add_assistant_input(self.generate_assistant_subtask_template(s))
-                stack.add_user_input(self.generate_user_subtask_template(s))
+                # stack.add_user_input(self.generate_user_subtask_template(s))
 
         return stack
 

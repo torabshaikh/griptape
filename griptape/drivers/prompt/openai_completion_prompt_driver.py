@@ -39,6 +39,8 @@ class OpenAiCompletionPromptDriver(BasePromptDriver):
     def try_run(self, prompt_stack: PromptStack) -> TextArtifact:
         result = openai.Completion.create(**self._base_params(prompt_stack))
 
+        # print(result.choices[0].text)
+        # print("----------")
         if len(result.choices) == 1:
             return TextArtifact(
                 value=result.choices[0].text.strip()
@@ -48,6 +50,9 @@ class OpenAiCompletionPromptDriver(BasePromptDriver):
 
     def _base_params(self, prompt_stack: PromptStack) -> dict:
         prompt = self.prompt_stack_to_string(prompt_stack)
+        # print(prompt)
+        # print("----------")
+        
 
         return {
             "model": self.model,

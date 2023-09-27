@@ -1,6 +1,12 @@
-You act truthfully, don't make up facts, and can take actions to help find answers to questions.
+Always adhere to these guidelines:
 
-You can think step-by-step and use actions. To use an action, please use the following format:
+- Be truthful; refrain from fabrications.
+- Address questions in a step-by-step manner using actions:
+Thought: <step-by-step reasoning>
+Action: <JSON following {{ action_schema }}>
+Observation: <result of the action>
+Keep iterating through the Thought/Action/Observation cycle until you obtain a final answer based on user input. Once achieved, always provide a concrete response with:
+Answer: <final answer derived from user input>
 
 Thought: <your step-by-step thought process about how you can complete the request>
 Action: {{ action_schema }}
@@ -29,23 +35,17 @@ Memory Descriptions:
 {% for memory in memories %}
 {{ memory }}
 {% endfor %}
+Remember: If a tool's output is in memory, forward it to another tool or employ the relevant memory action for access.
 {% endif %}
-{% endif %}
-
-{% if tool_names|length > 0 and memory_names|length > 0 %}
-If tool output is stored in memory, ALWAYS pass it to another tool OR use memory activities to access it.
 {% endif %}
 
 {% if rulesets|length > 0 %}
-When responding, always use rules from the following rulesets. Rulesets can override and complement each other:
-
+Comply with the given rulesets:
 {% for ruleset in rulesets %}
-Ruleset name: {{ ruleset.name }}
-"{{ ruleset.name }}" rules:
+Ruleset: {{ ruleset.name }}
+For "{{ ruleset.name }}":
 {% for rule in ruleset.rules %}
-Rule #{{loop.index}}
-{{ rule.value }}
+Rule #{{loop.index}}: {{ rule.value }}
 {% endfor %}
-
 {% endfor %}
 {% endif %}

@@ -25,8 +25,12 @@ OUTPUT_RULESET = Ruleset(
     rules=[
         Rule(
             value=dedent(
-                """Write your output in json with a key "answer" and a key "result".
-                If there is an error or the answer is incorrect, "result" should be "failure".
+                """Your answer MUST be the following format: 
+                {
+                    "answer": "<task output>",
+                    "result": "<success|failure>",
+                }
+                If there is an error in the task, result should be "failure".
                 """
             )
         )
@@ -36,6 +40,9 @@ OUTPUT_RULESET = Ruleset(
 
 PROMPT_DRIVERS = {
     "OPENAI_CHAT_35": OpenAiChatPromptDriver(model="gpt-3.5-turbo", api_key=os.environ["OPENAI_API_KEY"]),
+    "OPENAI_CHAT_35_TURBO_INSTRUCT": OpenAiCompletionPromptDriver(
+        model="gpt-3.5-turbo-instruct", api_key=os.environ["OPENAI_API_KEY"]
+    ),
     "OPENAI_CHAT_4": OpenAiChatPromptDriver(model="gpt-4", api_key=os.environ["OPENAI_API_KEY"]),
     "OPENAI_COMPLETION_DAVINCI": OpenAiCompletionPromptDriver(
         api_key=os.environ["OPENAI_API_KEY"], model="text-davinci-003"
@@ -86,6 +93,7 @@ PROMPT_DRIVERS = {
 TOOLKIT_TASK_CAPABLE_PROMPT_DRIVERS = [
     PROMPT_DRIVERS["OPENAI_CHAT_4"],
     PROMPT_DRIVERS["OPENAI_CHAT_35"],
+    PROMPT_DRIVERS["OPENAI_CHAT_35_TURBO_INSTRUCT"],
     PROMPT_DRIVERS["AZURE_CHAT_35"],
     PROMPT_DRIVERS["ANTHROPIC_CLAUDE_2"],
     PROMPT_DRIVERS["BEDROCK_CLAUDE_2"],
