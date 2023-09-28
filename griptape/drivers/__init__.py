@@ -43,6 +43,7 @@ from .prompt_model.sagemaker_falcon_prompt_model_driver import SageMakerFalconPr
 from .prompt_model.bedrock_titan_prompt_model_driver import BedrockTitanPromptModelDriver
 from .prompt_model.bedrock_claude_prompt_model_driver import BedrockClaudePromptModelDriver
 from .prompt_model.bedrock_jurassic_prompt_model_driver import BedrockJurassicPromptModelDriver
+from .prompt_model.bedrock_command_prompt_model_driver import BedrockCommandPromptModelDriver
 
 
 __all__ = [
@@ -92,4 +93,5 @@ __all__ = [
     "BedrockTitanPromptModelDriver",
     "BedrockClaudePromptModelDriver",
     "BedrockJurassicPromptModelDriver",
+    "BedrockCommandPromptModelDriver",
 ]
