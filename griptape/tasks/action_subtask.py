@@ -154,6 +154,7 @@ class ActionSubtask(PromptTask):
         return parent
 
     def __init_from_prompt(self, value: str) -> None:
+        print(value)
         thought_matches = re.findall(self.THOUGHT_PATTERN, value, re.MULTILINE)
         action_matches = re.findall(self.ACTION_PATTERN, value, re.DOTALL)
         answer_matches = re.findall(self.ANSWER_PATTERN, value, re.MULTILINE)

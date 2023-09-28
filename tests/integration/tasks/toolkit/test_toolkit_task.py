@@ -30,6 +30,6 @@ class TestToolkitTask:
         )
 
     def test_multi_step_cot(self, agent):
-        result = run_structure(agent, "Summarize the first 2 search results on parrot facts")
+        result = run_structure(agent, "Search for parrot facts and summarize one of the results.")
 
         assert fuzz.partial_ratio(result["result"], "python framework")

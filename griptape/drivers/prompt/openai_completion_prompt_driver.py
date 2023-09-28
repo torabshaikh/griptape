@@ -39,8 +39,8 @@ class OpenAiCompletionPromptDriver(BasePromptDriver):
     def try_run(self, prompt_stack: PromptStack) -> TextArtifact:
         result = openai.Completion.create(**self._base_params(prompt_stack))
 
-        # print(result.choices[0].text)
-        # print("----------")
+        print(result.choices[0].text)
+        print("----------")
         if len(result.choices) == 1:
             return TextArtifact(
                 value=result.choices[0].text.strip()
@@ -58,7 +58,7 @@ class OpenAiCompletionPromptDriver(BasePromptDriver):
             "model": self.model,
             "max_tokens": self.max_output_tokens(prompt),
             "temperature": self.temperature,
-            "stop": self.tokenizer.stop_sequences,
+            "stop": self.tokenizer.stop_sequences + ["User"],
             "user": self.user,
             "api_key": self.api_key,
             "organization": self.organization,

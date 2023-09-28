@@ -16,6 +16,7 @@ if TYPE_CHECKING:
 
 @define
 class TextToolMemory(BaseToolMemory, TextMemoryActivitiesMixin):
+    name: str = field(default="TextMemory")
     query_engine: BaseQueryEngine = field(kw_only=True)
     summary_engine: BaseSummaryEngine = field(
         kw_only=True,
