@@ -20,6 +20,7 @@ from .google_cal.tool import GoogleCalendarClient
 from .google_docs.tool import GoogleDocsClient
 from .google_drive.tool import GoogleDriveClient
 from .openweather_client.tool import OpenWeatherClient
+from .openstreetmap_client.tool import OpenStreetMapClient
 
 __all__ = [
     "BaseTool",
@@ -43,5 +44,6 @@ __all__ = [
     "ToolOutputProcessor",
     "Computer",
     "ProxycurlClient",
-    "OpenWeatherClient"
+    "OpenWeatherClient",
+    "OpenStreetMapClient"
 ]

@@ -2001,6 +2001,16 @@ files = [
 asn1crypto = ">=1.5.1"
 
 [[package]]
+name = "overpy"
+version = "0.6"
+description = "Python Wrapper to access the OpenStreepMap Overpass API"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "overpy-0.6.tar.gz", hash = "sha256:75fa462c445a3d8ade4dad84df6f150d273f45548639229316829a3a8c3e2190"},
+]
+
+[[package]]
 name = "packaging"
 version = "23.1"
 description = "Core utilities for Python packages"
@@ -4135,4 +4145,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "d21e59f66404b086f9ec179f7dd9de0ec27725fffda234489bc36d99c9a7e14b"
+content-hash = "10920f9d6f2dcad480468a6c7e2028e8d167d4f9c568f4623958a0ebc6fa3a6f"
